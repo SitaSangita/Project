@@ -1,0 +1,43 @@
+package in.sita.sangitaTech.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import in.sita.sangitaTech.DTO.CounsellorDTO;
+import in.sita.sangitaTech.DTO.CounsellorDashboradDTO;
+import in.sita.sangitaTech.serviceInterface.CounsellorInterface;
+import in.sita.sangitaTech.serviceInterface.EnquiryInterface;
+
+@Controller
+public class CousellorController {
+	@Autowired
+	private CounsellorInterface counsellorInterface;
+	
+	@Autowired
+	private EnquiryInterface enquiryInterface;
+	@GetMapping("/")
+	public String index(Model model) {
+		CounsellorDTO counsellor=new CounsellorDTO();
+	    model.addAttribute("counsellor", counsellor);
+	    return "index";
+	}
+	
+	@PostMapping("/login")
+	public String showLoginPage(CounsellorDTO dto, Model model) {
+		CounsellorDTO counsellor = counsellorInterface.login(dto);
+		if(counsellor ==null) {
+			model.addAttribute("emsg","Invalid EmailId and Password");
+			return "index";
+		}
+		else {
+			Integer counsellorId = counsellor.getCounsellorId();
+			CounsellorDashboradDTO dashboradDTO = 
+					enquiryInterface.getDashboardInfo(counsellorId);
+			model.addAttribute("dashboradDTO",dashboradDTO);
+		}
+		return "dashboard";
+	}
+}

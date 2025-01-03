@@ -1,0 +1,21 @@
+package in.sita.sangitaTech.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+import in.sita.sangitaTech.DTO.EnquiryDTO;
+import in.sita.sangitaTech.serviceInterface.EnquiryInterface;
+
+@Controller
+public class EnquiryController {
+	@Autowired
+	 private EnquiryInterface enquiryInterface;
+	
+	public String loadEnquiryPage(Model model) {
+		EnquiryDTO dto=new EnquiryDTO();
+		model.addAttribute(null, dto)
+		return "addenquiry";
+	}
+
+}

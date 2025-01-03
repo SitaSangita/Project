@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Coinsellor Ligin Page</title>
+	<style>
+		input[type="submit"] {
+			background-color: #4CAF50;
+			/* Green background */
+			color: white;
+			/* White text */
+			padding: 10px 20px;
+			/* Padding */
+			border: none;
+			/* Remove border */
+			border-radius: 5px;
+			/* Rounded corners */
+			cursor: pointer;
+			/* Pointer cursor on hover */
+			font-size: 16px;
+			/* Font size */
+		}
+
+		input[type="submit"]:hover {
+			background-color: #45a049;
+			/* Darker green on hover */
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Counseller Login....!</h1>
+
+		<form action="@{/login}" th:object="${counsellor}" method="post">
+			<table>
+				<tr>
+					<td>
+						<leabel>PassWord :</leabel>
+						<input type="text" required></input><br><br>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<leabel>PhoneNo:</leabel>
+						<input type="number" th:field="${phoneNo}" required></input><br><br>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<leabel>Email :</leabel>
+						<input type="email" th:field="${email}" required></input><br><br>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<leabel>PassWord :</leabel>
+						<input type="text" th:field="${password}" required></input><br><br>
+					</td>
+				</tr>
+			</table>
+			<tr>
+				<input type="submit" value="Submit"><br><br>
+				<a href="register.html">Register Here</a><br><br>
+			</tr>
+
+		</form>
+	</div>
+
+</body>
+
+</html>

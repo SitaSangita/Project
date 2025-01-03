@@ -1,0 +1,61 @@
+package in.sita.sangitaTech.serviceImplement;
+
+import java.util.List;
+
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import in.sita.sangitaTech.DTO.CounsellorDashboradDTO;
+import in.sita.sangitaTech.DTO.EnquiryDTO;
+import in.sita.sangitaTech.DTO.EnquiryFilterDTO;
+import in.sita.sangitaTech.entity.EnquiryEntity;
+import in.sita.sangitaTech.repo.CounsellorRepository;
+import in.sita.sangitaTech.repo.EnquiryRepository;
+import in.sita.sangitaTech.serviceInterface.EnquiryInterface;
+
+public class EnquiryImplement implements EnquiryInterface{
+
+	@Autowired
+	private CounsellorRepository counsellorRepository;
+	
+	@Autowired
+	private EnquiryRepository enquiryRepository;
+	@Override
+	public CounsellorDashboradDTO getDashboardInfo(Integer counsellorId) {
+		List<EnquiryEntity> enquiry = enquiryRepository.findByCounsellorCoinsellorId(counsellorId);
+		CounsellorDashboradDTO cdto=new CounsellorDashboradDTO();
+		cdto.setTotalEnquiry(enquiry.size());
+		int openCnt=enquiry.stream()
+			.filter(enq->enq.getStatus().equals("OPEN"))
+			.collect(Collectors.toList())
+			.size();
+		
+		return null;
+	}
+
+	@Override
+	public boolean addEnquiry(EnquiryDTO enquiryDTO, Integer counsllorId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<EnquiryDTO> getEnqiry(Integer counsllorId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<EnquiryDTO> getEnqiry(EnquiryFilterDTO enquiryFilterDTO, Integer counsllorId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EnquiryDTO getEnquiryById(Integer enqId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

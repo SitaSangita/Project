@@ -1,0 +1,5 @@
+package in.sita.sangitaTech.rest;
+
+public class EnquiryController {
+
+}

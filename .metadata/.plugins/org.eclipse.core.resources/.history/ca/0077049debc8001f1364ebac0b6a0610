@@ -1,0 +1,26 @@
+package in.sita.sangitaTech.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import in.sita.sangitaTech.DTO.CounsellorDTO;
+import in.sita.sangitaTech.serviceInterface.CounsellorInterface;
+
+@Controller
+public class CousellorController {
+	@Autowired
+	private CounsellorInterface counsellorInterface;
+	
+	@GetMapping("/")
+	public String index(Model model) {
+		CounsellorDTO counsellor=new CounsellorDTO();
+	    model.addAttribute("counsellor", counsellor);
+	    return "index";
+	}
+	
+	public String showLoginPage(Model model) {
+		return "index";
+	}
+}

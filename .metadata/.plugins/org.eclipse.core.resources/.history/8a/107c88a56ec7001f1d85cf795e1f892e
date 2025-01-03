@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Coinsellor Ligin Page</title>
+	
+</head>
+
+<body>
+	<div class="container">
+		<h1>Counseller Login....!</h1>
+
+		<form action="@{/login}" th:object="${counsellor}" method="post">
+			<table>
+				<tr>
+					<td>
+						<leabel>Name :</leabel>
+					</td>
+					<td>
+						<input type="text" th:field="*{name}" required></input><br><br>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<leabel>PhoneNo:</leabel>
+					</td>
+					<td>
+						<input type="number" th:field="*{phoneNo}" required></input>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<leabel>Email :</leabel>
+					</td>
+					<td>
+						<input type="email" th:field="*{email}" required></input>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<leabel>PassWord :</leabel>
+						<input type="text" th:field="*{password}" required></input>
+					</td>
+				</tr>
+			</table>
+			<tr>
+				<input type="submit" value="Submit"><br><br>
+				<a href="register.html">Register Here</a><br><br>
+			</tr>
+
+		</form>
+	</div>
+
+</body>
+
+</html>

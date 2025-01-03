@@ -1,0 +1,9 @@
+package in.sita.sangitaTech.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import in.sita.sangitaTech.entity.EnquiryEntity;
+
+public interface EnquiryRepository extends JpaRepository<EnquiryEntity, Integer>{
+
+}

@@ -1,0 +1,5 @@
+package in.sita.sangitaTech.entity;
+
+public class CounsellorEntity {
+
+}

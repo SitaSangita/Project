@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>View Enquiry Details</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">HOME</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="dashboard">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="enquiry-page">Add Enquiry</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/view-enquiries">View Enquiry</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">LogOut</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main Content -->
+	<div class="container my-5">
+		<h1 class="text-center mb-4">View Enquiries</h1>
+		
+		<div class="table-responsive">
+			<form th:action="@{/}" th:object="" method="post">
+				<table>
+					<tr>
+						<td>
+							<select class="form-select" id="classMode" th:field="*{classMode}">
+								<option value="">--Select--</option>
+								<option value="Classroom">Classroom</option>
+								<option value="online">Online</option>
+							</select>
+						</td>
+						<td>
+							<select class="form-select" id="course" th:field="*{course}">
+								<option value="">--Select--</option>
+								<option value="Java">Java</option>
+								<option value="DevOps">DevOps</option>
+								<option value="C++">C++</option>
+								<option value="AWS">AWS</option>
+								<option value="Linux">Linux</option>
+								<option value="Docker">Docker</option>
+							</select>
+						</td>
+						<td>
+							<select class="form-select" id="status" th:field="*{status}">
+								<option value="">--Select--</option>
+								<option value="Enrolled">Enrolled</option>
+								<option value="Open">Open</option>
+								<option value="Lost">Lost</option>
+							</select>
+						</td>
+						<td>
+							<input type="submit" value="search">
+						</td>
+					</tr>
+				</table>
+			</form>
+			<table class="table table-striped table-hover">
+				<thead class="table-dark">
+					<tr>
+						<th scope="col">Name</th>
+						<th scope="col">Phone No</th>
+						<th scope="col">Class Mode</th>
+						<th scope="col">Course</th>
+						<th scope="col">Status</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="enq : ${enquiries}">
+						<td th:text="${enq.name}"></td>
+						<td th:text="${enq.phoneNo}"></td>
+						<td th:text="${enq.classMode}"></td>
+						<td th:text="${enq.course}"></td>
+						<td th:text="${enq.status}"></td>
+						<td>
+							<a th:href="@{/edit-enquiry(enqId=${enq.enqId})}">Edit</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="bg-primary text-white text-center py-3">
+		<p>&copy; 2025 SangitaTech | All Rights Reserved</p>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

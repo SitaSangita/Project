@@ -1,0 +1,17 @@
+package in.sita.sangitaTech.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import in.sita.sangitaTech.serviceInterface.EnquiryInterface;
+
+@Controller
+public class EnquiryController {
+	@Autowired
+	 private EnquiryInterface enquiryInterface;
+	
+	public String loadEnquiryPage(Model model) {
+		return "";
+	}
+
+}

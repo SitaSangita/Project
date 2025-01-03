@@ -1,0 +1,9 @@
+package in.sita.sangitaTech.serviceInterface;
+
+import in.sita.sangitaTech.DTO.CounsellorDashboradDTO;
+import in.sita.sangitaTech.DTO.EnquiryDTO;
+
+public interface CounsellorInterface {
+
+	
+}

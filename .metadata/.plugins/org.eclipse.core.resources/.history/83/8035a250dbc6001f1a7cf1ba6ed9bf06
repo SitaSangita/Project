@@ -1,0 +1,42 @@
+package in.sita.sangitaTech.serviceImplement;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.sita.sangitaTech.DTO.CounsellorDTO;
+import in.sita.sangitaTech.entity.CounsellorEntity;
+import in.sita.sangitaTech.repo.CounsellorRepository;
+import in.sita.sangitaTech.serviceInterface.CounsellorInterface;
+@Service
+public class CounsellorImplement implements CounsellorInterface{
+
+	@Autowired
+	private CounsellorRepository counsellorRepository;
+	@Override
+	public CounsellorDTO login(CounsellorDTO counsellorDTO) {
+		CounsellorEntity entity = 
+				counsellorRepository.findByEmailandPassword(
+						counsellorDTO.getEmail(), 
+						counsellorDTO.getPassword());
+		if(entity !=null) {
+			CounsellorDTO cdto=new CounsellorDTO();
+			BeanUtils.copyProperties(entity, cdto);
+			return cdto;
+		}
+		return null;
+	}
+
+	@Override
+	public boolean uniqueEmailCheck(String email) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean register(CounsellorDTO counsellorDTO) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
