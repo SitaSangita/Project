@@ -1,5 +1,0 @@
-package in.sita.sangitaTech.serviceInterface;
-
-public interface EntityInterface {
-
-}

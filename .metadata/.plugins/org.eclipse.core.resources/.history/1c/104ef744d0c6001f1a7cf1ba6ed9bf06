@@ -1,9 +1,0 @@
-package in.sita.sangitaTech.DTO;
-
-public class CounsellorDashboradDTO {
-	private Integer totalEnquiry;
-	private Integer openEnquiry;
-	private Integer enrolledEnquiry;
-	private Integer lostEnquiry;
-
-}

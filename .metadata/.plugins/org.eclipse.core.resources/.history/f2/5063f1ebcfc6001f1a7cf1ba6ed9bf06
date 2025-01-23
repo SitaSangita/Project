@@ -1,5 +1,0 @@
-package in.sita.sangitaTech.repo;
-
-public interface EnquiryRepository {
-
-}
