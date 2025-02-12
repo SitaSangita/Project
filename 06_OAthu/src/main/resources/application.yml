@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: 06_OAthu
+  security:
+     oauth2:
+       client:
+         registration:
+           github:
+             clientId: Ov23liIVYr0pIbez5Mez
+             clientSecret: a215edf020baa94b96b7d800a3f4f1fde096b7c7
+server:
+  port: 9090
